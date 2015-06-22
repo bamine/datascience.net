@@ -34,7 +34,7 @@ def generate_vw_file(input_file, output_file, type_of_file='train', label_col='C
         counter += 1
         if counter % 10000 == 0:
             logging.info('Processed %s lines ...', counter)
-            break
+            # break
 
     if type_of_file == 'train':
         labels_file = open('labels.txt', 'wb')
