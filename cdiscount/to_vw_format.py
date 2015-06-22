@@ -21,9 +21,9 @@ def generate_vw_file(input_file, output_file, type_of_file='train', label_col='C
             label = row[label_col]
             if label not in labels:
                 labels.append(label)
+            label_int = labels.index(label) + 1
         else:
-            label = 1
-        label_int = labels.index(label) + 1
+            label_int = 1
         line = "{0} {1}|D {2} |L {3} |P price:{4}\n".format(
             label_int,
             row['Identifiant_Produit'],

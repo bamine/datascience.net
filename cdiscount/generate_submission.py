@@ -7,7 +7,7 @@ logging.basicConfig(level=logging.DEBUG,
 
 
 def generate_submission(vw_predictions_file, submission_file, labels_dict_file='labels.txt'):
-    vw_predictions = open(vw_predictions)
+    vw_predictions = open(vw_predictions_file)
     submission = open(submission_file, 'wb')
     submission.write('Id_Produit;Id_Categorie\n')
     labels_dict = [(line.strip().split(':')[0],line.strip().split(':')[1])
@@ -26,4 +26,4 @@ parser.add_argument('vw_predictions_file', help = 'VW predictions file')
 parser.add_argument('submission_file', help = 'name of the output predictions file')
 args = parser.parse_args()
 
-vw_accuracy(args.train_file, args.pred_file)
+generate_submission(args.vw_predictions_file, args.submission_file)
