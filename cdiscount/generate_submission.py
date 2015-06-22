@@ -15,7 +15,7 @@ def generate_submission(vw_predictions_file, submission_file, labels_dict_file='
     for pred in vw_predictions:
         product_id = pred.strip().split()[1]
         category_id = int(float(pred.strip().split()[0]))
-        submission.write('{0};{1}\n',product_id,category_id)
+        submission.write('{0};{1}\n'.format(product_id,category_id))
 
     vw_predictions.close()
     submission.close()
