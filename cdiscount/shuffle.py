@@ -55,7 +55,7 @@ for line in i_f:
     if counter % 100000 == 0:
         logging.info("Counted %s lines", counter)
 
-logginginfo("Number of lines in file %s", counter)
+logging.info("Number of lines in file %s", counter)
 
 logging.info("shuffling file %s...", input_file)
 
