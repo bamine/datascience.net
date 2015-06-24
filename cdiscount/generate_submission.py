@@ -10,11 +10,11 @@ def generate_submission(vw_predictions_file, submission_file, labels_dict_file='
     vw_predictions = open(vw_predictions_file)
     submission = open(submission_file, 'wb')
     submission.write('Id_Produit;Id_Categorie\n')
-    labels_dict = [(line.strip().split(':')[0],line.strip().split(':')[1])
-        for line in open(labels_dict_file).readlines()]
+    labels_dict = dict([(line.strip().split(':')[0],line.strip().split(':')[1])
+        for line in open(labels_dict_file).readlines()])
     for pred in vw_predictions:
         product_id = pred.strip().split()[1]
-        category_id = int(float(pred.strip().split()[0]))
+        category_id = labels_dict[str(int(float(pred.strip().split()[0])-1))]
         submission.write('{0};{1}\n'.format(product_id,category_id))
 
     vw_predictions.close()
